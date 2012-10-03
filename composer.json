@@ -1,0 +1,23 @@
+{
+	"name": "salva/jshrink-bundle",
+	"type": "symfony-bundle",
+	"description": "This bundle integrate jshrink library as Assetic filter",
+	"keywords": ["Assetic", "Symfony Bundle", "jshrink", "javascript", "minify"],
+	"homepage": "https://github.com/nibsirahsieu/SalvaJshrinkBundle",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Nibsirahsieu",
+			"email": "nibsirahsieu@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.3.2",
+		"symfony/assetic-bundle": "*",
+		"tedivm/jshrink":"dev-master"
+	},
+	"autoload": {
+		"psr-0": { "Salva\\JshrinkBundle": "" }
+	},
+	"target-dir": "Salva/JshrinkBundle"
+}
