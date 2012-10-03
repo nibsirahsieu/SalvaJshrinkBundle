@@ -16,6 +16,9 @@ Add the following lines to the `deps` file at the root of your project file:
 [SalvaJshrinkBundle]
     git=http://github.com/nibsirahsieu/SalvaJshrinkBundle.git
     target=bundles/Salva/JshrinkBundle
+[JShrink]
+    git=https://github.com/tedivm/JShrink.git
+    target=jshrink    
 ```
 
 Next, update your vendors by running:
@@ -44,6 +47,7 @@ $loader->registerNamespaces(array(
     // ...
 
     'Salva'        => __DIR__.'/../vendor/bundles',
+    'JShrink'      => __DIR__.'/../vendor/jshrink/src',
 ));
 ```
 
