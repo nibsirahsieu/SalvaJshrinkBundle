@@ -1,7 +1,7 @@
 SalvaJshrinkBundle
 ==================
 
-This bundle integrate "[jshrink library](https://github.com/tedivm/JShrink)" as Assetic filter.
+This bundle integrate "[jshrink library](https://github.com/tedivm/JShrink)" as Assetic filter and twig extension.
 
 Installation
 ============
@@ -81,8 +81,20 @@ salva_jshrink:
 
 ## Basic Usage
 
+**Minifying javascript files**
+
 ``` twig
 {% javascripts '@AcmeFooBundle/Resources/public/js/*' filter='jshrink' %}
     <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
+```
+
+**Minifying inline javascript**
+
+```
+<script type="text/javascript">{% jshrink %}
+    $(document).ready(function() {
+        // ...
+    });
+{% endjshrink %}</script>
 ```
