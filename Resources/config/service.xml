@@ -2,18 +2,23 @@
 <container xmlns="http://symfony.com/schema/dic/services"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
- 
+
     <parameters>
         <parameter key="salva_assetic_filter.jshrink.class">Salva\JshrinkBundle\Assetic\Filter\JshrinkFilter</parameter>
+        <parameter key="salva_twig_extension.jshrink.class">Salva\JshrinkBundle\Twig\Extension\JshrinkExtension</parameter>
     </parameters>
- 
+
     <services>
- 
+
         <service id="salva_assetic_filter.jshrink" class="%salva_assetic_filter.jshrink.class%">
             <argument />
             <tag name="assetic.filter" alias="jshrink"></tag>
         </service>
- 
+
+        <service id="salva_twig_extension.jshrink" class="%salva_twig_extension.jshrink.class%">
+            <tag name="twig.extension" />
+        </service>
+
     </services>
- 
+
 </container>
