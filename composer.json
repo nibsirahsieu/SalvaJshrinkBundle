@@ -2,7 +2,7 @@
 	"name": "salva/jshrink-bundle",
 	"type": "symfony-bundle",
 	"description": "This bundle integrate jshrink library as Assetic filter and twig extension",
-	"keywords": ["Assetic", "Symfony Bundle", "jshrink", "javascript", "minify"],
+	"keywords": ["Assetic", "Symfony Bundle", "jshrink", "javascript", "minify", "twig"],
 	"homepage": "https://github.com/nibsirahsieu/SalvaJshrinkBundle",
 	"license": "MIT",
 	"authors": [
