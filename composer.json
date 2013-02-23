@@ -13,12 +13,17 @@
 	],
 	"require": {
 		"php": ">=5.3.2",
-		"symfony/assetic-bundle": "*",
+		"symfony/assetic-bundle": "2.*",
 		"twig/extensions": "1.0.*",
-		"tedivm/jshrink":"dev-master"
+		"tedivm/jshrink": "0.5.*"
 	},
 	"autoload": {
 		"psr-0": { "Salva\\JshrinkBundle": "" }
 	},
-	"target-dir": "Salva/JshrinkBundle"
+	"target-dir": "Salva/JshrinkBundle",
+	"extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
