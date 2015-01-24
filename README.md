@@ -18,7 +18,7 @@ Add the following lines to the `deps` file at the root of your project file:
     target=bundles/Salva/JshrinkBundle
 [JShrink]
     git=https://github.com/tedivm/JShrink.git
-    target=jshrink    
+    target=jshrink
 ```
 
 Next, update your vendors by running:
@@ -32,7 +32,7 @@ $ ./bin/vendors install
 Tell composer to download the bundle by running the command:
 
 ``` bash
-$ php composer.phar require salva/jshrink-bundle:1.0.*@dev
+$ php composer.phar require salva/jshrink-bundle:~1.0
 ```
 
 ### 2) Configure the autoloader (no needed for composer)
