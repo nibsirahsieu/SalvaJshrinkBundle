@@ -6,95 +6,73 @@ This bundle integrate "[jshrink library](https://github.com/tedivm/JShrink)" as 
 Installation
 ============
 
-### 1) Download SalvaJshrinkBundle
+Step 1: Download the Bundle
+---------------------------
 
-**Using the vendors script**
+Open a command console, enter your project directory and execute the
+following command to download the latest stable version of this bundle:
 
-Add the following lines to the `deps` file at the root of your project file:
-
-```
-[SalvaJshrinkBundle]
-    git=http://github.com/nibsirahsieu/SalvaJshrinkBundle.git
-    target=bundles/Salva/JshrinkBundle
-[JShrink]
-    git=https://github.com/tedivm/JShrink.git
-    target=jshrink
+```bash
+$ composer require salva/jshrink-bundle
 ```
 
-Next, update your vendors by running:
+This command requires you to have Composer installed globally, as explained
+in the [installation chapter](https://getcomposer.org/doc/00-intro.md)
+of the Composer documentation.
 
-``` bash
-$ ./bin/vendors install
-```
+Step 2: Enable the Bundle
+-------------------------
 
-**Using composer**
+Then, enable the bundle by adding the following line in the `app/AppKernel.php`
+file of your project:
 
-Tell composer to download the bundle by running the command:
-
-``` bash
-$ php composer.phar require salva/jshrink-bundle:~1.0
-```
-
-### 2) Configure the autoloader (no needed for composer)
-
-Add the following entry to your autoloader:
-
-``` php
-<?php
-// app/autoload.php
-
-$loader->registerNamespaces(array(
-    // ...
-
-    'Salva'        => __DIR__.'/../vendor/bundles',
-    'JShrink'      => __DIR__.'/../vendor/jshrink/src',
-));
-```
-
-### 3) Enable the bundle
-
-Finally, enable the bundle in the kernel:
-
-``` php
-<?php
+```php
 // app/AppKernel.php
 
-public function registerBundles()
+// ...
+class AppKernel extends Kernel
 {
-    $bundles = array(
-        // ...
+    public function registerBundles()
+    {
+        $bundles = array(
+            // ...
 
-        new Salva\JshrinkBundle\SalvaJshrinkBundle(),
-    );
+            new Salva\JshrinkBundle\SalvaJshrinkBundle(),
+        );
+    }
 }
 ```
-## Configuration
 
-**Optionally, add the configuration in your config file**
+Configuration
+-------------
 
-*app/config.yml*
+Optionally, add the configuration in your config file.
 
-```
+```yml
+# app/config.yml
 salva_jshrink:
     flaggedComments: true
 ```
 
-## Basic Usage
+Basic Usage
+-----------
 
-**Minifying javascript files**
+Minifying JavaScript files
 
-``` twig
+```twig
 {% javascripts '@AcmeFooBundle/Resources/public/js/*' filter='jshrink' %}
     <script src="{{ asset_url }}"></script>
 {% endjavascripts %}
 ```
 
-**Minifying inline javascript**
+Minifying inline JavaScript
 
-```
-<script type="text/javascript">{% jshrink %}
+```twig
+{% jshrink %}
+<script>
     $(document).ready(function() {
         // ...
     });
-{% endjshrink %}</script>
+</script>
+{% endjshrink %}
 ```

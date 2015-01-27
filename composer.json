@@ -1,29 +1,41 @@
 {
-	"name": "salva/jshrink-bundle",
-	"type": "symfony-bundle",
-	"description": "This bundle integrate jshrink library as Assetic filter and twig extension",
-	"keywords": ["Assetic", "Symfony Bundle", "jshrink", "javascript", "minify", "twig"],
-	"homepage": "https://github.com/nibsirahsieu/SalvaJshrinkBundle",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Nibsirahsieu",
-			"email": "nibsirahsieu@gmail.com"
-		}
-	],
-	"require": {
-		"php": ">=5.3.2",
-		"symfony/assetic-bundle": "2.*",
-		"twig/extensions": "~1",
-		"tedivm/jshrink": "~1.0"
-	},
-	"autoload": {
-		"psr-0": { "Salva\\JshrinkBundle": "" }
-	},
-	"target-dir": "Salva/JshrinkBundle",
-	"extra": {
+    "authors": [
+        {
+            "email": "nibsirahsieu@gmail.com",
+            "name": "Nibsirahsieu"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Salva\\JshrinkBundle\\": "."
+        }
+    },
+    "description": "This bundle integrate jshrink library as Assetic filter and twig extension",
+    "extra": {
         "branch-alias": {
             "dev-master": "1.0.x-dev"
         }
+    },
+    "homepage": "https://github.com/nibsirahsieu/SalvaJshrinkBundle",
+    "keywords": [
+        "Assetic",
+        "Symfony Bundle",
+        "jshrink",
+        "javascript",
+        "minify",
+        "twig"
+    ],
+    "license": "MIT",
+    "name": "salva/jshrink-bundle",
+    "require": {
+        "php": ">=5.3.2",
+        "tedivm/jshrink": "~1.0",
+        "twig/extensions": "~1.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.4",
+        "symfony/assetic-bundle": "~2.6",
+        "symfony/framework-bundle": "~2.6",
+        "symfony/twig-bundle": "~2.6"
     }
 }

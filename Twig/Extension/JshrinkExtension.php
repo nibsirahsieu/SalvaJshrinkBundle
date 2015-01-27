@@ -6,10 +6,27 @@ use Salva\JshrinkBundle\Twig\TokenParser\JshrinkTokenParser;
 use Twig_Extension;
 
 /**
- * Jshrink
+ * Jshrink Twig Extension
  */
 class JshrinkExtension extends Twig_Extension
 {
+    /**
+     * JShrink configuration.
+     *
+     * @var array
+     */
+    private $config;
+
+    /**
+     * Twig extension based on bundle configuration.
+     *
+     * @param array $config
+     */
+    public function __construct(array $config = array())
+    {
+        $this->config = $config;
+    }
+
     /**
      * {@inheritDoc}
      */
@@ -24,7 +41,7 @@ class JshrinkExtension extends Twig_Extension
     public function getTokenParsers()
     {
         return array(
-            new JshrinkTokenParser(),
+            new JshrinkTokenParser($this->config),
         );
     }
 }
