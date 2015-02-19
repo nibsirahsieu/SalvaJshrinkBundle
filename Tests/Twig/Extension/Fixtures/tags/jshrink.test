@@ -1,0 +1,13 @@
+--TEST--
+"jshrink" tag
+--TEMPLATE--
+<script>{% jshrink %}
+    /*! copyright */ $(document).ready(function() {
+        // ...
+    });
+{% endjshrink %}</script>
+--DATA--
+return array()
+--EXPECT--
+<script>/*! copyright */
+$(document).ready(function(){});</script>

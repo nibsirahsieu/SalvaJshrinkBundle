@@ -2,42 +2,29 @@
 
 namespace Salva\JshrinkBundle\Tests\Twig\Extension;
 
-use PHPUnit_Framework_TestCase;
-use Salva\JshrinkBundle\Tests\AppKernel;
+use Salva\JshrinkBundle\Twig\Extension\JshrinkExtension;
+use Twig_Test_IntegrationTestCase;
 
 /**
  * @coversDefaultClass \Salva\JshrinkBundle\Twig\Extension\JshrinkExtension
- * @runTestsInSeparateProcesses
  */
-class JshrinkExtensionTest extends PHPUnit_Framework_TestCase
+class JshrinkExtensionTest extends Twig_Test_IntegrationTestCase
 {
     /**
-     * @covers ::load
+     * {@inheritdoc}
      */
-    public function testNodeWithoutComments()
+    public function getExtensions()
     {
-        $kernel = new AppKernel('Twig_Extension_JshrinkExtension_testNodeWithoutComments', true);
-        $kernel->boot();
-
-        $twig = $kernel->getContainer()->get('twig');
-        $html = $twig->render('@SalvaJshrinkBundle/Tests/Resources/views/node.html.twig');
-
-        $this->assertSame('<script>$(document).ready(function(){});</script>', $html);
+        return array(
+            new JshrinkExtension(),
+        );
     }
 
     /**
-     * @covers ::load
+     * {@inheritdoc}
      */
-    public function testNodeWithComments()
+    public function getFixturesDir()
     {
-        $kernel = new AppKernel('Twig_Extension_JshrinkExtension_testNodeWithComments', true);
-        $kernel->boot();
-
-        $twig = $kernel->getContainer()->get('twig');
-        $html = $twig->render('@SalvaJshrinkBundle/Tests/Resources/views/node.html.twig');
-
-        $expected = '<script>/*! copyright */
-$(document).ready(function(){});</script>';
-        $this->assertSame($expected, $html);
+        return __DIR__.'/Fixtures/';
     }
 }
