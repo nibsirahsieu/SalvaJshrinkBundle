@@ -15,10 +15,16 @@ class SalvaJshrinkExtension extends Extension
         
         $loader = new XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('service.xml');
+
+        $filterOptions = array('flaggedComments');
         
         $container
             ->getDefinition('salva_assetic_filter.jshrink')
-            ->replaceArgument(0, $config);
+            ->replaceArgument(0, array_intersect_key($config, array_flip($filterOptions)));
+
+        $container
+            ->getDefinition('salva_twig_extension.jshrink')
+            ->replaceArgument(0, $config['enabled']);
     }
 
     public function getAlias()

@@ -11,6 +11,21 @@ use Twig_Extension;
 class JshrinkExtension extends Twig_Extension
 {
     /**
+     * Extension enabled
+     *
+     * @var bool
+     */
+    private $enable;
+
+    /**
+     * @param bool $enable
+     */
+    public function __construct($enable = true)
+    {
+        $this->enable = $enable;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function getName()
@@ -23,8 +38,8 @@ class JshrinkExtension extends Twig_Extension
      */
     public function getTokenParsers()
     {
-        return array(
-            new JshrinkTokenParser(),
-        );
+        return [
+            new JshrinkTokenParser($this->enable),
+        ];
     }
 }

@@ -12,6 +12,19 @@ use Twig_TokenParser;
 class JshrinkTokenParser extends Twig_TokenParser
 {
     /**
+     * @var boolean
+     */
+    private $shrink;
+
+    /**
+     * @param bool $shrink
+     */
+    public function __construct($shrink = true)
+    {
+        $this->shrink = (bool) $shrink;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function parse(Twig_Token $token)
@@ -24,7 +37,11 @@ class JshrinkTokenParser extends Twig_TokenParser
         }, true);
         $this->parser->getStream()->expect(Twig_Token::BLOCK_END_TYPE);
 
-        return new JshrinkNode($body, $lineNumber, $this->getTag());
+        if ($this->shrink) {
+            return new JshrinkNode($body, $lineNumber, $this->getTag());
+        } else {
+            return $body;
+        }
     }
 
     /**

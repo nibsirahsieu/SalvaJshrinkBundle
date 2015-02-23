@@ -16,6 +16,7 @@
         </service>
 
         <service id="salva_twig_extension.jshrink" class="%salva_twig_extension.jshrink.class%">
+            <argument />
             <tag name="twig.extension" />
         </service>
 
