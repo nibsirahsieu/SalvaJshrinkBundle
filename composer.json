@@ -2,7 +2,14 @@
     "authors": [
         {
             "email": "nibsirahsieu@gmail.com",
-            "name": "Nibsirahsieu"
+            "name": "Nibsirahsieu",
+            "role": "Lead Developer"
+        },
+        {
+            "email": "minottoemanuele@gmail.com",
+            "homepage": "http://www.emanueleminotto.it",
+            "name": "Emanuele Minotto",
+            "role": "Collaborator"
         }
     ],
     "autoload": {
