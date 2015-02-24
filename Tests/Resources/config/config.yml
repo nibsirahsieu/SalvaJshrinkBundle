@@ -1,0 +1,19 @@
+framework:
+  router:
+    resource: '%kernel.root_dir%/Resources/config/ruoting.yml'
+  templating:
+    engines:
+    - twig
+  test: null
+
+parameters:
+  kernel.secret: ThisTokenIsNotSoSecretChangeIt
+
+twig:
+  cache: false
+  optimizations: 0
+
+assetic:
+  bundles: []
+  debug: '%kernel.debug%'
+  use_controller: false

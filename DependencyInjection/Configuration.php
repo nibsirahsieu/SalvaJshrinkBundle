@@ -7,13 +7,19 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
+    /**
+     * {@inheritDoc}
+     */
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('salva_jshrink', 'array');
+        $rootNode = $treeBuilder->root('salva_jshrink');
+
         $rootNode
             ->children()
-                ->booleanNode('flaggedComments')->defaultTrue()->end()
+                ->booleanNode('flaggedComments')
+                    ->defaultTrue()
+                ->end()
             ->end();
 
         return $treeBuilder;

@@ -1,0 +1,5 @@
+imports:
+- resource: config.yml
+
+salva_jshrink:
+  flaggedComments: false
