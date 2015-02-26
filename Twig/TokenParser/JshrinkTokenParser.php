@@ -7,10 +7,15 @@ use Twig_Token;
 use Twig_TokenParser;
 
 /**
- * Jshrink Twig Extension
+ * Jshrink
  */
 class JshrinkTokenParser extends Twig_TokenParser
 {
+    /**
+     * @var bool
+     */
+    private $enabled;
+
     /**
      * JShrink configuration.
      *
@@ -22,10 +27,12 @@ class JshrinkTokenParser extends Twig_TokenParser
      * Twig extension based on bundle configuration.
      *
      * @param array $config
+     * @param bool  $enabled
      */
-    public function __construct(array $config = array())
+    public function __construct(array $config = array(), $enabled = true)
     {
         $this->config = $config;
+        $this->enabled = (bool) $enabled;
     }
 
     /**
@@ -41,10 +48,14 @@ class JshrinkTokenParser extends Twig_TokenParser
         }, true);
         $this->parser->getStream()->expect(Twig_Token::BLOCK_END_TYPE);
 
-        $node = new JshrinkNode($body, $lineNumber, $this->getTag());
-        $node->setConfig($this->config);
+        if ($this->enabled) {
+            $node = new JshrinkNode($body, $lineNumber, $this->getTag());
+            $node->setConfig($this->config);
 
-        return $node;
+            return $node;
+        }
+
+        return $body;
     }
 
     /**

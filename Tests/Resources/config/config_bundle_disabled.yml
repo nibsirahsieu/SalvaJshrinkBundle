@@ -1,0 +1,4 @@
+imports:
+- resource: config.yml
+
+salva_jshrink: false

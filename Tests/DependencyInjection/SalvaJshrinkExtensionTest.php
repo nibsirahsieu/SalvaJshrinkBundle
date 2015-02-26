@@ -20,7 +20,7 @@ class SalvaJshrinkExtensionTest extends PHPUnit_Framework_TestCase
      */
     protected function setUp()
     {
-        $this->kernel = new AppKernel('DependencyInjection_SalvaJshrinkExtensionTest', true);
+        $this->kernel = new AppKernel('dev', true);
         $this->kernel->boot();
     }
 
@@ -50,5 +50,33 @@ class SalvaJshrinkExtensionTest extends PHPUnit_Framework_TestCase
 
         $this->assertInstanceOf($salvaAsseticFilter, $container->get('salva_assetic_filter.jshrink'));
         $this->assertInstanceOf($salvaTwigExtension, $container->get('salva_twig_extension.jshrink'));
+    }
+
+    /**
+     * @covers ::load
+     */
+    public function testBundleDisabled()
+    {
+        $kernel = new AppKernel('bundle_disabled', true);
+        $kernel->boot();
+
+        $container = $kernel->getContainer();
+
+        $this->assertTrue($container->has('salva_assetic_filter.jshrink'));
+        $this->assertTrue($container->has('salva_twig_extension.jshrink'));
+    }
+
+    /**
+     * @covers ::load
+     */
+    public function testCommentsDisabled()
+    {
+        $kernel = new AppKernel('comments_disabled', true);
+        $kernel->boot();
+
+        $container = $kernel->getContainer();
+
+        $this->assertTrue($container->has('salva_assetic_filter.jshrink'));
+        $this->assertTrue($container->has('salva_twig_extension.jshrink'));
     }
 }

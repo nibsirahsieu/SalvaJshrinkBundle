@@ -16,6 +16,8 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('salva_jshrink');
 
         $rootNode
+            ->addDefaultsIfNotSet()
+            ->canBeDisabled()
             ->children()
                 ->booleanNode('flaggedComments')
                     ->defaultTrue()

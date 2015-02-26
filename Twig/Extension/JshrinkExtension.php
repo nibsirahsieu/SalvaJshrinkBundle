@@ -11,6 +11,13 @@ use Twig_Extension;
 class JshrinkExtension extends Twig_Extension
 {
     /**
+     * Extension enabled.
+     *
+     * @var bool
+     */
+    private $enabled;
+
+    /**
      * JShrink configuration.
      *
      * @var array
@@ -21,10 +28,12 @@ class JshrinkExtension extends Twig_Extension
      * Twig extension based on bundle configuration.
      *
      * @param array $config
+     * @param bool  $enabled
      */
-    public function __construct(array $config = array())
+    public function __construct(array $config = array(), $enabled = true)
     {
         $this->config = $config;
+        $this->enabled = (bool) $enabled;
     }
 
     /**
@@ -41,7 +50,7 @@ class JshrinkExtension extends Twig_Extension
     public function getTokenParsers()
     {
         return array(
-            new JshrinkTokenParser($this->config),
+            new JshrinkTokenParser($this->config, $this->enabled),
         );
     }
 }

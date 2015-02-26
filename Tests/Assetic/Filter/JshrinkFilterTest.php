@@ -16,7 +16,7 @@ class JshrinkFilterTest extends PHPUnit_Framework_TestCase
      */
     public function testDevScripts()
     {
-        $kernel = new AppKernel('JshrinkFilterTest', true);
+        $kernel = new AppKernel('dev', true);
         $kernel->boot();
 
         $container = $kernel->getContainer();
@@ -36,7 +36,7 @@ class JshrinkFilterTest extends PHPUnit_Framework_TestCase
      */
     public function testProdScripts()
     {
-        $kernel = new AppKernel('JshrinkFilterTest', false);
+        $kernel = new AppKernel('dev', false);
         $kernel->boot();
 
         $container = $kernel->getContainer();

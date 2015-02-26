@@ -6,11 +6,12 @@
     </parameters>
     <services>
         <service class="%salva_assetic_filter.jshrink.class%" id="salva_assetic_filter.jshrink">
-            <argument>null</argument>
+            <argument/>
             <tag alias="jshrink" name="assetic.filter"/>
         </service>
         <service class="%salva_twig_extension.jshrink.class%" id="salva_twig_extension.jshrink">
-            <argument>null</argument>
+            <argument/>
+            <argument/>
             <tag name="twig.extension"/>
         </service>
     </services>
