@@ -51,6 +51,7 @@ Optionally, add the configuration in your config file.
 ```yml
 # app/config.yml
 salva_jshrink:
+    enabled: true # if false {% jshrink %} tag will not compress the content
     flaggedComments: true
 ```
 
