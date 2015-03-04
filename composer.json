@@ -35,6 +35,11 @@
         "symfony/framework-bundle": ">=2.3",
         "symfony/twig-bundle": ">=2.3"
     },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.1.x-dev"
+        }
+    },
     "autoload": {
         "psr-4": {
             "Salva\\JshrinkBundle\\": "."
