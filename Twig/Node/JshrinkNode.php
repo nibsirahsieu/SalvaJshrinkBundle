@@ -45,6 +45,8 @@ class JshrinkNode extends Twig_Node
             ->addDebugInfo($this)
             ->write("ob_start();\n")
             ->subcompile($this->getNode('body'))
-            ->write("echo \\JShrink\\Minifier::minify(trim(ob_get_clean()),".var_export($this->config, true).");\n");
+            ->write("echo \$context['_jshrink_cached_minifier']->minify(")
+            ->raw("trim(ob_get_clean()), " . var_export($this->config, true) . "")
+            ->raw(");\n");
     }
 }

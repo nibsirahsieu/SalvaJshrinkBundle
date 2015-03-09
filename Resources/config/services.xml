@@ -3,6 +3,7 @@
     <parameters>
         <parameter key="salva_assetic_filter.jshrink.class">Salva\JshrinkBundle\Assetic\Filter\JshrinkFilter</parameter>
         <parameter key="salva_twig_extension.jshrink.class">Salva\JshrinkBundle\Twig\Extension\JshrinkExtension</parameter>
+        <parameter key="salva_cache.jshrink.class">Salva\JshrinkBundle\Cache\CachedMinifier</parameter>
     </parameters>
     <services>
         <service class="%salva_assetic_filter.jshrink.class%" id="salva_assetic_filter.jshrink">
@@ -10,9 +11,13 @@
             <tag alias="jshrink" name="assetic.filter"/>
         </service>
         <service class="%salva_twig_extension.jshrink.class%" id="salva_twig_extension.jshrink">
+            <argument type="service" id="salva_cache.jshrink" />
             <argument/>
             <argument/>
             <tag name="twig.extension"/>
+        </service>
+        <service class="%salva_cache.jshrink.class%" id="salva_cache.jshrink">
+            <argument>%kernel.cache_dir%/salva_jshrink</argument>
         </service>
     </services>
 </container>
