@@ -16,8 +16,23 @@ class JshrinkExtensionTest extends Twig_Test_IntegrationTestCase
     public function getExtensions()
     {
         return array(
-            new JshrinkExtension(),
+            new JshrinkExtension($this->getCacheMock()),
         );
+    }
+
+    /**
+     * @return \Salva\JshrinkBundle\Cache\CacheInterface
+     */
+    private function getCacheMock()
+    {
+        $mock = $this->getMock('\Salva\JshrinkBundle\Cache\CacheInterface');
+        $mock->expects($this->any())
+            ->method('minify')
+            ->willReturnCallback(function ($arg) {
+                return \JShrink\Minifier::minify($arg);
+            });
+
+        return $mock;
     }
 
     /**
