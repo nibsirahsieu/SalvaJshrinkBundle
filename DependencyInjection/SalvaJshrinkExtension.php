@@ -32,8 +32,8 @@ class SalvaJshrinkExtension extends Extension
 
         $container
             ->getDefinition('salva_twig_extension.jshrink')
-            ->replaceArgument(0, $jshrinkConfiguration)
-            ->replaceArgument(1, $config['enabled']);
+            ->replaceArgument(1, $jshrinkConfiguration)
+            ->replaceArgument(2, $config['enabled']);
     }
 
     /**
