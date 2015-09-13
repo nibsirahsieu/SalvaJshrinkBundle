@@ -7,7 +7,7 @@ use Salva\JshrinkBundle\Twig\TokenParser\JshrinkTokenParser;
 use Twig_Extension;
 
 /**
- * Jshrink Twig Extension
+ * Jshrink Twig Extension.
  */
 class JshrinkExtension extends Twig_Extension
 {
@@ -26,7 +26,7 @@ class JshrinkExtension extends Twig_Extension
     private $config;
 
     /**
-     * Cache handler for minified content
+     * Cache handler for minified content.
      *
      * @var CacheInterface
      */
@@ -39,7 +39,7 @@ class JshrinkExtension extends Twig_Extension
      * @param array          $config
      * @param bool           $enabled
      */
-    public function __construct(CacheInterface $cache, array $config = array(), $enabled = true)
+    public function __construct(CacheInterface $cache, array $config = [], $enabled = true)
     {
         $this->cache = $cache;
         $this->config = $config;
@@ -48,13 +48,13 @@ class JshrinkExtension extends Twig_Extension
 
     public function getGlobals()
     {
-        return array(
+        return [
             '_jshrink_cached_minifier' => $this->cache,
-        );
+        ];
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getName()
     {
@@ -62,12 +62,12 @@ class JshrinkExtension extends Twig_Extension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getTokenParsers()
     {
-        return array(
+        return [
             new JshrinkTokenParser($this->config, $this->enabled),
-        );
+        ];
     }
 }

@@ -18,20 +18,20 @@ class JshrinkFilter implements FilterInterface
     /**
      * @param array $options
      */
-    public function __construct(array $options = array())
+    public function __construct(array $options = [])
     {
         $this->options = $options;
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function filterLoad(AssetInterface $asset)
     {
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function filterDump(AssetInterface $asset)
     {
