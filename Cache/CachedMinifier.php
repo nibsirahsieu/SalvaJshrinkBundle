@@ -3,11 +3,9 @@
 namespace Salva\JshrinkBundle\Cache;
 
 /**
- * Class CachedMinifier
+ * Class CachedMinifier.
  *
  * Cached minified content
- *
- * @package Salva\JshrinkBundle
  */
 class CachedMinifier implements CacheInterface
 {
@@ -35,7 +33,7 @@ class CachedMinifier implements CacheInterface
             }
 
             $hash = md5($content);
-            $file = join(DIRECTORY_SEPARATOR, array($this->cacheDir, $hash));
+            $file = implode(DIRECTORY_SEPARATOR, [$this->cacheDir, $hash]);
             if (!file_exists($file)) {
                 file_put_contents($file, \JShrink\Minifier::minify($content, $options));
             }
