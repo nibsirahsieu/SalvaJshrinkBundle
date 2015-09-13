@@ -3,15 +3,13 @@
 namespace Salva\JshrinkBundle\Cache;
 
 /**
- * Interface CacheInterface
- *
- * @package Salva\JshrinkBundle
+ * Interface CacheInterface.
  */
 interface CacheInterface
 {
     /**
      * @param string $content
-     * @param array $options
+     * @param array  $options
      *
      * @return string
      */

@@ -15,9 +15,9 @@ class JshrinkExtensionTest extends Twig_Test_IntegrationTestCase
      */
     public function getExtensions()
     {
-        return array(
+        return [
             new JshrinkExtension($this->getCacheMock()),
-        );
+        ];
     }
 
     /**

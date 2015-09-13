@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 class SalvaJshrinkExtension extends Extension
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(array $configs, ContainerBuilder $container)
     {
@@ -22,9 +22,9 @@ class SalvaJshrinkExtension extends Extension
         );
         $loader->load('services.xml');
 
-        $jshrinkConfiguration = array(
+        $jshrinkConfiguration = [
             'flaggedComments' => $config['flaggedComments'],
-        );
+        ];
 
         $container
             ->getDefinition('salva_assetic_filter.jshrink')
@@ -37,7 +37,7 @@ class SalvaJshrinkExtension extends Extension
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getAlias()
     {
