@@ -23,7 +23,7 @@ class JshrinkNode extends Twig_Node
      */
     public function __construct(Twig_NodeInterface $body, $lineNumber, $tag = 'jshrink')
     {
-        parent::__construct(['body' => $body], [], $lineNumber, $tag);
+        parent::__construct(array('body' => $body), array(), $lineNumber, $tag);
     }
 
     /**
@@ -31,7 +31,7 @@ class JshrinkNode extends Twig_Node
      *
      * @param array $config
      */
-    public function setConfig(array $config = [])
+    public function setConfig(array $config = array())
     {
         $this->config = $config;
     }

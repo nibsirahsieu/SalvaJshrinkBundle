@@ -39,7 +39,7 @@ class JshrinkExtension extends Twig_Extension
      * @param array          $config
      * @param bool           $enabled
      */
-    public function __construct(CacheInterface $cache, array $config = [], $enabled = true)
+    public function __construct(CacheInterface $cache, array $config = array(), $enabled = true)
     {
         $this->cache = $cache;
         $this->config = $config;
@@ -48,9 +48,9 @@ class JshrinkExtension extends Twig_Extension
 
     public function getGlobals()
     {
-        return [
+        return array(
             '_jshrink_cached_minifier' => $this->cache,
-        ];
+        );
     }
 
     /**
@@ -66,8 +66,8 @@ class JshrinkExtension extends Twig_Extension
      */
     public function getTokenParsers()
     {
-        return [
+        return array(
             new JshrinkTokenParser($this->config, $this->enabled),
-        ];
+        );
     }
 }

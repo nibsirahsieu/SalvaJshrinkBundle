@@ -33,7 +33,7 @@ class CachedMinifier implements CacheInterface
             }
 
             $hash = md5($content);
-            $file = implode(DIRECTORY_SEPARATOR, [$this->cacheDir, $hash]);
+            $file = implode(DIRECTORY_SEPARATOR, array($this->cacheDir, $hash));
             if (!file_exists($file)) {
                 file_put_contents($file, \JShrink\Minifier::minify($content, $options));
             }
