@@ -9,12 +9,12 @@ class AppKernel extends Kernel
 {
     public function registerBundles()
     {
-        return [
+        return array(
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new \Symfony\Bundle\TwigBundle\TwigBundle(),
             new \Salva\JshrinkBundle\SalvaJshrinkBundle(),
-        ];
+        );
     }
 
     public function registerContainerConfiguration(LoaderInterface $loader)

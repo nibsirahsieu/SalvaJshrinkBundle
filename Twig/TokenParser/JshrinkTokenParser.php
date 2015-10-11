@@ -29,7 +29,7 @@ class JshrinkTokenParser extends Twig_TokenParser
      * @param array $config
      * @param bool  $enabled
      */
-    public function __construct(array $config = [], $enabled = true)
+    public function __construct(array $config = array(), $enabled = true)
     {
         $this->config = $config;
         $this->enabled = (bool) $enabled;

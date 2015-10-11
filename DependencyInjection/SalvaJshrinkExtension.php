@@ -22,9 +22,9 @@ class SalvaJshrinkExtension extends Extension
         );
         $loader->load('services.xml');
 
-        $jshrinkConfiguration = [
+        $jshrinkConfiguration = array(
             'flaggedComments' => $config['flaggedComments'],
-        ];
+        );
 
         $container
             ->getDefinition('salva_assetic_filter.jshrink')
