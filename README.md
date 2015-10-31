@@ -1,6 +1,10 @@
 SalvaJshrinkBundle
 ==================
 
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/salva/jshrink-bundle.svg)](https://packagist.org/packages/salva/jshrink-bundle)
+[![Build Status](https://img.shields.io/travis/nibsirahsieu/SalvaJshrinkBundle.svg?style=flat)](https://travis-ci.org/nibsirahsieu/SalvaJshrinkBundle)
+[![Total Downloads](https://img.shields.io/packagist/dt/salva/jshrink-bundle.svg?style=flat)](https://packagist.org/packages/salva/jshrink-bundle)
+
 This bundle integrate "[jshrink library](https://github.com/tedivm/JShrink)" as Assetic filter and twig extension.
 
 Installation
