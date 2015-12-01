@@ -23,9 +23,6 @@ class JshrinkFilterTest extends PHPUnit_Framework_TestCase
 
         $twig = $container->get('twig');
 
-        $container->enterScope('request');
-        $container->set('request', new Request(), 'request');
-
         $html = $twig->render('@SalvaJshrinkBundle/Tests/Resources/views/assetic.html.twig');
 
         $this->assertRegExp('/\s*<script src="[^\"]+"><\/script>\s*\n\s*<script src="[^\"]+"><\/script>\s*/', $html);
@@ -42,9 +39,6 @@ class JshrinkFilterTest extends PHPUnit_Framework_TestCase
         $container = $kernel->getContainer();
 
         $twig = $container->get('twig');
-
-        $container->enterScope('request');
-        $container->set('request', new Request(), 'request');
 
         $html = $twig->render('@SalvaJshrinkBundle/Tests/Resources/views/assetic.html.twig');
 

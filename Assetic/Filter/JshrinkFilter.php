@@ -13,7 +13,7 @@ class JshrinkFilter implements FilterInterface
      *
      * @var array
      */
-    protected $options;
+    protected $options = array();
 
     /**
      * @param array $options

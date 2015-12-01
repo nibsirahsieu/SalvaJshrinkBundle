@@ -4,7 +4,6 @@ namespace Salva\JshrinkBundle\Twig\Node;
 
 use Twig_Compiler;
 use Twig_Node;
-use Twig_NodeInterface;
 
 /**
  * Jshrink Twig Extension.
@@ -21,7 +20,7 @@ class JshrinkNode extends Twig_Node
     /**
      * {@inheritdoc}
      */
-    public function __construct(Twig_NodeInterface $body, $lineNumber, $tag = 'jshrink')
+    public function __construct(Twig_Node $body, $lineNumber, $tag = 'jshrink')
     {
         parent::__construct(array('body' => $body), array(), $lineNumber, $tag);
     }
