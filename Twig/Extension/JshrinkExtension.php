@@ -5,11 +5,12 @@ namespace Salva\JshrinkBundle\Twig\Extension;
 use Salva\JshrinkBundle\Cache\CacheInterface;
 use Salva\JshrinkBundle\Twig\TokenParser\JshrinkTokenParser;
 use Twig_Extension;
+use Twig_Extension_GlobalsInterface;
 
 /**
  * Jshrink Twig Extension.
  */
-class JshrinkExtension extends Twig_Extension
+class JshrinkExtension extends Twig_Extension implements Twig_Extension_GlobalsInterface
 {
     /**
      * Extension enabled.
